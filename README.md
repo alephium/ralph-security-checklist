@@ -4,8 +4,12 @@
 - [ ] Are events used for proper logging?
 - [ ] Are user-friendly error codes provided?
 - [ ] Is the return value from low-level calls checked?
-- [ ] Who has control over privileged accounts, and what are the mechanisms for control?
-- [ ] Is there a single private key controlling the contract, or is a multisig setup used?
+- [ ] Testing
+  * High test coverage
+  * Unit tests covering all critical edge cases
+  * Extensive integration tests
+  * Code Freeze
+- [ ] Use a contract to receive protocol fees instead of address to avoid too many UTXOs generated
 
 ## Public Functions
 - [ ] Should it be public ?
@@ -17,6 +21,7 @@
 
 ## Maths
 
+- [ ] Token amounts are dealt with the right units
 - [ ] Is the calculation even correct ?
 - [ ] Is there precision lost ? (especially for year/month/day calculation)
 - [ ] Always * before /
