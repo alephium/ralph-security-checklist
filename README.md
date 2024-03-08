@@ -40,7 +40,7 @@
 - [ ] Can corrupted owner destroy the protocol ?
 - [ ] Is a features lacking access controls ?
 - [ ] Are timelocks used for important operations so that the users have time to observe upcoming changes ?
-- [ ] Are critical functions accesible ?
+- [ ] Are critical functions accessible ?
 
 ## Signatures
 - [ ] Are signatures protected against replay with a nonce and block.chainid ?
