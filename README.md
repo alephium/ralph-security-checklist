@@ -39,7 +39,7 @@
   * Bugs that lead restricted function to steal all the assets is a centralization risk
 - [ ] Can corrupted owner destroy the protocol ?
 - [ ] Is a features lacking access controls ?
-- [ ] Are timelocks used for important operations so that the users have time to observe upcoming changes
+- [ ] Are timelocks used for important operations so that the users have time to observe upcoming changes ?
 - [ ] Are critical functions accesible ?
 
 ## Signatures
