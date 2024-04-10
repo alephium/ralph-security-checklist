@@ -13,7 +13,7 @@ The AlphPad team has promptly addressed all necessary improvements based on our 
 - Initial commit hash for review: `745a386`
 - Final commit hash: `0a94b37`
 
-Below, you'll find a summary of the checks performed on the contracts.
+Below, you'll find a summary of the checks performed on the contracts. A checkmark indicates that we have checked a specific item.
 
 ## Common
 - [x] Are events used for proper logging?
@@ -44,7 +44,7 @@ Below, you'll find a summary of the checks performed on the contracts.
 
 ## Control access
 
-- [x] Centralization risk
+- [x] Centralization risk: `Admin key for contract upgrade is implemented with timelocks, following best practices.`
   * Executors can perform token transfers on behalf of user ?
   * Reclaiming / withdrawing any tokens ?
   * Total upgradeability ?
