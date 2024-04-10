@@ -16,7 +16,7 @@
 - [ ] Does the function need to check caller ? If so, is it checked properly
 - [ ] Does the function use assets properly ?
 - [ ] Are the inputs checked ?
-- [ ] Can edge case inputs (0, max) result of an unexpected behavior ?
+- [ ] Can edge case inputs (0, max) result in an unexpected behavior ?
 - [ ] Is the code comments coherent with the implementation ?
 
 ## Maths
