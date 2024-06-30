@@ -1,61 +1,74 @@
 # Ralph security checklist
 
+## Final Checks
+- [ ] Are all contract tests passing in CI?
+- [ ] Have all security recommendations been implemented?
+- [ ] Does the project use the latest dApp stack of Alephium
+
 ## Common
 - [ ] Are events used for proper logging?
 - [ ] Are user-friendly error codes provided?
 - [ ] Is the return value from low-level calls checked?
 - [ ] Testing
-  * High test coverage
-  * Unit tests covering all critical edge cases
-  * Extensive integration tests
-  * Code Freeze
-- [ ] Use a contract to receive protocol fees instead of address to avoid too many UTXOs generated
+  * Is there high test coverage?
+  * Are unit tests covering all critical edge cases?
+  * Are there extensive integration tests?
+  * Is there a code Freeze before deployment?
+- [ ] Is a contract used to receive protocol fees instead of address to avoid generating too many UTXOs?
 
 ## Public Functions
-- [ ] Should it be public ?
-- [ ] Does the function need to check caller ? If so, is it checked properly
-- [ ] Does the function use assets properly ?
-- [ ] Are the inputs checked ?
-- [ ] Can edge case inputs (0, max) result in an unexpected behavior ?
-- [ ] Is the code comments coherent with the implementation ?
+- [ ] Are function visibility and mutability correctly specified?
+- [ ] Does the function need to check caller? If so, is it checked properly?
+- [ ] Does the function use assets properly?
+- [ ] Are the inputs validated?
+- [ ] Can edge case inputs (e.g. 0, max values) result in an unexpected behavior?
+- [ ] Are the code comments coherent with the implementation?
+
+## Language Specific
+- [ ] All value types used as reference types by accident?
 
 ## Maths
 
-- [ ] Token amounts are dealt with the right units
-- [ ] Is the calculation even correct ?
-- [ ] Is there precision lost ? (especially for year/month/day calculation)
-- [ ] Always * before /
-- [ ] When < or > check if it should not be ≤ or ≥
+- [ ] Are token amounts handled with the correct units?
+- [ ] Is the calculation correct?
+- [ ] Is there any precision lost? (especially for year/month/day calculation)
+- [ ] Are * performed before /?
+- [ ] Are comparison checked correctly (e.g., < vs. ≤, > vs. ≥)?
 
-## Control access
+## Access Control
 
-- [ ] Centralization risk
-  * Executors can perform token transfers on behalf of user ?
-  * Reclaiming / withdrawing any tokens ?
-  * Total upgradeability ?
-  * Instant parameters change (no timelock) ?
-  * Can pause freely ?
-  * Can rug user and steal assets ?
-  * Bugs that lead restricted function to steal all the assets is a centralization risk
-- [ ] Can corrupted owner destroy the protocol ?
-- [ ] Is a features lacking access controls ?
-- [ ] Are timelocks used for important operations so that the users have time to observe upcoming changes ?
-- [ ] Are critical functions accessible ?
+- [ ] Are centralization risks addressed with best practices?
+  * Can executors perform token transfers on behalf of the user?
+  * Can any token be reclaimed or withdrawn?
+  * Is there total upgradeability?
+  * Are there instant parameter changes (no timelock)?
+  * Can the contract be paused freely?
+  * Can the contract be rugged to steal user assets?
+  * Do bugs in restricted functions pose a centralization risk?
+- [ ] Can a corrupted owner destroy the protocol?
+- [ ] Are any features lacking access controls?
+- [ ] Are timelocks used for important operations, allowing users time to observe upcoming changes?
+- [ ] Are critical functions accessible?
+
+## DoS
+- [ ] Does the contract store a limited number of tokens (current limit: 8 tokens)?
+- [ ] Could the contract block operations if there are insufficient assets (e.g. staking rewards)?
+- [ ] Are loops and recursive calls optimized to prevent exceeding gas limits?
 
 ## Signatures
-- [ ] Are signatures protected against replay with a nonce and block.chainid ?
-- [ ] Is the Signature used from the right person ?
+- [ ] Are signatures protected against replay with a nonce and block.chainid?
+- [ ] Is the Signature used from the correct person?
 
 ## Merkle trees
-- [ ] Are leafs hashed with the claimable address inside?
-- [ ] What happen if we pass the zero hash?
-- [ ] What happen if the exact same proof exist twice in the tree?
+- [ ] Are leaf nodes hashed with the claimable address inside?
+- [ ] Does it handle zero hash properly?
+- [ ] Does it handle duplicated values properly?
 
 ## General tips
-- [ ] For logic implemented several times, see if there are any differences and then standardize the logic.
-- [ ] Timelocks should be implemented for every protocol upgrade/change. (to let users exit if they don’t agree)
+- [ ] For logic implemented multiple times, are there any differences, and is the logic standardized?
+- [ ] Are timelocks implemented for every protocol upgrade/change to allow users to exit if they disagree?
 - [ ] Beware of Oracle manipulation: Don't use spot price from an AMM as an oracle.
-- [ ] When pause mechanism :
-  * can pause something that should not be pause (e.g liquidation)
-  * Check can brick the contract
-  * Check if whenNotPaused is well implemented on every functions where it needs to be
+- [ ] For pause mechanism :
+  * Can something critical be paused (e.g., liquidation)?
+  * Can the contract be bricked by pausing?
+  * Is `whenNotPaused` implemented correctly in every function where needed?
