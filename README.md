@@ -12,6 +12,7 @@
 - [ ] Testing
   * Is there high test coverage?
   * Are unit tests covering all critical edge cases?
+  * Is there at least one unit test for each error that can be thrown?
   * Are there extensive integration tests?
   * Is there a code Freeze before deployment?
 - [ ] Is a contract used to receive protocol fees instead of address to avoid generating too many UTXOs?
