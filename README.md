@@ -34,6 +34,7 @@
 - [ ] Is the calculation correct?
 - [ ] Is there any precision lost? (especially for year/month/day calculation)
 - [ ] Are * performed before /?
+- [ ] Are all rounding operations performed correctly?
 - [ ] Are comparison checked correctly (e.g., < vs. ≤, > vs. ≥)?
 
 ## Access Control
