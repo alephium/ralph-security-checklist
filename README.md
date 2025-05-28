@@ -20,6 +20,7 @@
 ## Public Functions
 - [ ] Are function visibility and mutability correctly specified?
 - [ ] Does the function need to check caller? If so, is it checked properly?
+- [ ] Use `checkExternalCaller!(...)` instead of `checkCaller!(...)` since Danube upgrade
 - [ ] Does the function use assets properly?
 - [ ] Are the inputs validated?
 - [ ] Can edge case inputs (e.g. 0, max values) result in an unexpected behavior?
